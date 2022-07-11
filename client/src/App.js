@@ -1,9 +1,13 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Login from './components/auth/Login';
+import Alert from './components/layout/Alert';
+
 import Register from './components/auth/Register';
+
 
 //Redux 
 import { Provider } from 'react-redux';
@@ -16,12 +20,14 @@ const App =() => (
   <Router> 
     <Fragment>
      <Navbar/>
+     <Alert/>
      <Routes> 
+
       <Route exact path="/" element = { <Landing/> }/>
-     
+      
+
           <Route exact path="/register" element = {<Register/>} />
           <Route exact path="/login" element = {<Login/>} />
-       
       </Routes>
     </Fragment>
   </Router>
