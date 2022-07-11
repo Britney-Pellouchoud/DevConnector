@@ -9,7 +9,7 @@
 
 * {
   box-sizing: border-box;
-  margin: 100;
+  margin: 0;
   padding: 0;
 }
 
@@ -252,7 +252,7 @@ img {
 .form select,
 .form textarea {
   display: block;
-  width: 40%;
+  width: 100%;
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
@@ -574,11 +574,4 @@ button {
   .post button {
     padding: 0.3rem 0.4rem;
   }
-}
-
-.alert-wrapper {
-  position: fixed;
-  top: 4rem;
-  right: 2rem;
-  display: inline-block;
 }
