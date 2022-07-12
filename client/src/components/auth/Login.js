@@ -13,7 +13,7 @@ export const Login = ({ login, isAuthenticated }) => {
         }
     );
 
-    const {email, password } = formData;
+    const { email, password } = formData;
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
     const onSubmit = async e => {
         e.preventDefault();
@@ -49,8 +49,8 @@ export const Login = ({ login, isAuthenticated }) => {
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
-}
+  isAuthenticated: PropTypes.bool
+};
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
