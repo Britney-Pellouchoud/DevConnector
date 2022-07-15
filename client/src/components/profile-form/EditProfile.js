@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 
-/*
-  NOTE: declare initialState outside of component
-  so that it doesn't trigger a useEffect
-  we can then safely use this to construct our profileData
- */
+
 const initialState = {
   company: '',
   website: '',
@@ -24,7 +20,7 @@ const initialState = {
   instagram: ''
 };
 
-const ProfileForm = ({
+const EditProfile = ({
   profile: { profile, loading },
   createProfile,
   getCurrentProfile
@@ -79,7 +75,7 @@ const ProfileForm = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, navigate, true);
+    createProfile(formData, navigate, profile ? true : false);
   };
 
   return (
@@ -261,7 +257,7 @@ const ProfileForm = ({
   );
 };
 
-ProfileForm.propTypes = {
+EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired
@@ -272,5 +268,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-  ProfileForm
+  EditProfile
+
 );

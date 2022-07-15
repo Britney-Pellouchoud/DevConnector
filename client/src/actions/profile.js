@@ -10,6 +10,7 @@ import {
 // Get current users profile
 export const getCurrentProfile = () => async dispatch => {
     try {
+        //console.log('HITS HERE MOTHERFUCKER');
         const res = await axios.get('./api/profile/me');
 
         dispatch( {
@@ -63,3 +64,6 @@ export const createProfile =
       });
     }
   };
+
+
+ 

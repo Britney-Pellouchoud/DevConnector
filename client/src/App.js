@@ -7,7 +7,10 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/profile-form/CreateProfile';
+import EditProfile from './components/profile-form/EditProfile';
+
 import PrivateRoute from './components/routing/PrivateRoute';
+
 import { LOGOUT } from './actions/types';
 
 
@@ -58,7 +61,9 @@ const App = () => {
           <Route exact path="/login" element = {<Login/>} />
           <Route path="/dashboard" element = {<PrivateRoute> <Dashboard/> </PrivateRoute>} />
           <Route path="/create-profile" element = {<PrivateRoute> <CreateProfile/> </PrivateRoute>} />
-
+          <Route path="/edit-profile" element = {<PrivateRoute> <EditProfile/> </PrivateRoute>} />
+          
+        
       </Routes>
     </Fragment>
   </Router>
