@@ -254,7 +254,7 @@ router.put('/education', [ auth, [
     check('from', 'From date is required')
         .not()
         .isEmpty(),
-    check('fieldOfStudy', 'Field of study date is required')
+    check('fieldofstudy', 'Field of study date is required')
         .not()
         .isEmpty()
 ]
@@ -267,7 +267,7 @@ router.put('/education', [ auth, [
     const {
         school,
         degree,
-        fieldOfStudy,
+        fieldofstudy,
         from,
         to,
         current,
@@ -277,7 +277,7 @@ router.put('/education', [ auth, [
     const newEdu = {
         school,
         degree,
-        fieldOfStudy,
+        fieldofstudy,
         from,
         to,
         current,
@@ -289,7 +289,6 @@ router.put('/education', [ auth, [
 
         
         profile.education.unshift(newEdu);
-        console.log("AGAIN ");
         
         await profile.save();
         res.json(profile);
@@ -316,7 +315,6 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 
         await profile.save();
         res.json(profile);
-        console.log("HITS HERE");
 
     } catch(err) {
         console.error(err.message);
