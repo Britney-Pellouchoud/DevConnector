@@ -12,6 +12,7 @@ import AddExperience from './components/profile-form/AddExperience';
 import AddEducation from './components/profile-form/AddEducation';
 import Profiles from './components/profiles/Profiles';
 
+
 import PrivateRoute from './components/routing/PrivateRoute';
 
 import { LOGOUT } from './actions/types';
