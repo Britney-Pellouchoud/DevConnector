@@ -23,7 +23,6 @@ const AddEducation = ({ addEducation }) => {
     
 
     const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value });
-    console.log("hello world ");
   return (
     <Fragment> 
         <h1 className="large-text-primary">Add Your Education</h1>

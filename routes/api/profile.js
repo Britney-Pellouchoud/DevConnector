@@ -117,24 +117,26 @@ async (req, res) => {
 // @desc    Get all profiles
 // @access  Public
 router.get('/', async (req, res) => {
-    try{
-        const profiles = await Profile.find().populate('user', ['name', 'avatar']);
-        res.json(profiles);
-    } catch(err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
+    try {
+      const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+      res.json(profiles);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
     }
-});
-
+  });
+  
 // @route   GET api/profile/user/:user_id
 // @desc    Get profile by userid
 // @access  Public
 router.get('/user/:user_id', async (req, res) => {
+    console.log(user_id);
+    console.log("HELLO WORLD!");
     try{
         const profile = await Profile.findOne({ user: req.params.user_id }).populate('user', ['name', 'avatar']);
 
         if (!profile) return res.status(400).json({ msg: 'Profile not found'});
-        res.json(profile);
+        return res.json(profile);
     } catch(err) {
         console.error(err.message);
 
@@ -306,16 +308,12 @@ router.put('/education', [ auth, [
 
 router.delete('/education/:edu_id', auth, async (req, res) => {
     try{
-        console.log("hello world");
 
         const profile = await Profile.findOne({ user: req.user.id });
 
         //Get remove index
         const removeIndex = profile.education.map(item => item.id).indexOf(req.params.edu_id);
-        console.log("help");
         profile.education.splice(removeIndex, 1);
-        console.log(profile.educations);
-        console.log("DELETE");
         await profile.save();
         res.json(profile);
 

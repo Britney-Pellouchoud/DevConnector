@@ -10,6 +10,7 @@ import CreateProfile from './components/profile-form/CreateProfile';
 import EditProfile from './components/profile-form/EditProfile';
 import AddExperience from './components/profile-form/AddExperience';
 import AddEducation from './components/profile-form/AddEducation';
+import Profiles from './components/profiles/Profiles';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -61,11 +62,15 @@ const App = () => {
       <Route exact path="/" element = { <Landing/> }/>
           <Route exact path="/register" element = {<Register/>} />
           <Route exact path="/login" element = {<Login/>} />
+          <Route exact path="/profiles" element = {<Profiles/>} />
           <Route path="/dashboard" element = {<PrivateRoute> <Dashboard/> </PrivateRoute>} />
           <Route path="/create-profile" element = {<PrivateRoute> <CreateProfile/> </PrivateRoute>} />
           <Route path="/edit-profile" element = {<PrivateRoute> <EditProfile/> </PrivateRoute>} />
           <Route path="/add-experience" element = {<PrivateRoute> <AddExperience/> </PrivateRoute>} />
           <Route path="/add-education" element = {<PrivateRoute> <AddEducation/> </PrivateRoute>} />
+
+                    <Route exact path="/register" element = {<Register/>} />
+
         
       </Routes>
     </Fragment>

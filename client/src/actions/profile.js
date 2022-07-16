@@ -36,9 +36,13 @@ export const getCurrentProfile = () => async dispatch => {
 // Get all profiles
 export const getProfiles = () => async dispatch => {
   dispatch({ type: CLEAR_PROFILE });
+  console.log("HELLO");
 
   try {
+
       const res = await axios.get('/api/profile');
+      console.log(res.data)
+
 
       dispatch( {
           type: GET_PROFILES,
@@ -55,10 +59,12 @@ export const getProfiles = () => async dispatch => {
 };
 
 // Get profile by id
-export const getProfileById = userId => async dispatch => {
+export const getProfileById = (userId) => async (dispatch) => {
 
   try {
       const res = await axios.get(`/api/profile/user/${userId}`);
+      console.log("HERE ");
+      console.log(res.data);
 
       dispatch( {
           type: GET_PROFILE,
@@ -119,7 +125,7 @@ export const createProfile =
       );
 
       if (!edit) {
-        navigate('/dashboard');
+        navigate.push('/dashboard');
       }
     } catch (err) {
       const errors = err.response.data.errors;
@@ -180,7 +186,6 @@ export const addEducation = (formData, navigate, edit=false) => async (dispatch)
           }
       }
     const res = await axios.put('/api/profile/education', formData, config);
-    console.log("HITS HERE");
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -236,14 +241,12 @@ export const deleteExperience = (id) => async (dispatch) => {
 export const deleteEducation = (id) => async (dispatch) => {
   try{
     const res = await axios.delete('/api/profile/education/${id}');
-    console.log(res);
     
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data
     });
     console.log(res.data);
-    console.log("HITS HERE");
     dispatch(
       setAlert('Education Removed', 'success')
     );

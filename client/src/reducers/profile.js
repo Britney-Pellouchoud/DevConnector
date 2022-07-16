@@ -21,7 +21,6 @@ export default function(state = initialState, action) {
     switch(type) {
         case GET_PROFILE:
         case UPDATE_PROFILE: 
-            console.log("profile updated");
             return{
                 ...state,
                 profile: payload,
@@ -49,6 +48,7 @@ export default function(state = initialState, action) {
                 repos: [],
                 loading: false
             };
+        
         case GET_REPOS:
             return {
                 ...state,
