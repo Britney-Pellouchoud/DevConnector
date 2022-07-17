@@ -142,6 +142,9 @@ router.get(
   
         return res.json(profile);
       } catch (err) {
+          if(err.kind=='ObjectId') {
+              return res.status(400).json({ msg: 'Profile not found'});
+          }
         console.error(err.message);
         return res.status(500).json({ msg: 'Server error' });
       }
