@@ -31,10 +31,10 @@ import setAuthToken from './utils/setAuthToken';
 
 
 import './App.css';
-/*
-if(localStorage.token) {
-  setAuthToken(localStorage.token);
-}*/
+
+//if(localStorage.token) {
+//  setAuthToken(localStorage.token);
+//}
 
 const App = () => {
   useEffect(() => {
@@ -60,15 +60,15 @@ const App = () => {
      <Alert/>
      <Routes> 
 
-      <Route exact path="/" element = { <Landing/> }/>
-          <Route exact path="/register" element = {<Register/>} />
-          <Route exact path="/login" element = {<Login/>} />
-          <Route exact path="/profiles" element = {<Profiles/>} />
-          <Route path="/dashboard" element = {<PrivateRoute> <Dashboard/> </PrivateRoute>} />
-          <Route path="/create-profile" element = {<PrivateRoute> <CreateProfile/> </PrivateRoute>} />
-          <Route path="/edit-profile" element = {<PrivateRoute> <EditProfile/> </PrivateRoute>} />
-          <Route path="/add-experience" element = {<PrivateRoute> <AddExperience/> </PrivateRoute>} />
-          <Route path="/add-education" element = {<PrivateRoute> <AddEducation/> </PrivateRoute>} />
+        <Route exact path="/" element = { <Landing /> }/>
+          <Route exact path="/register" element = {<Register />} />
+          <Route exact path="/login" element = {<Login />} />
+          <Route exact path="/profiles" element = {<Profiles />} />
+          <Route exact path="/dashboard" element = {<PrivateRoute> <Dashboard /> </PrivateRoute>} />
+          <Route path="/create-profile" element = {<PrivateRoute> <CreateProfile /> </PrivateRoute>} />
+          <Route path="/edit-profile" element = {<PrivateRoute> <EditProfile /> </PrivateRoute>} />
+          <Route path="/add-experience" element = {<PrivateRoute> <AddExperience /> </PrivateRoute>} />
+          <Route path="/add-education" element = {<PrivateRoute> <AddEducation /> </PrivateRoute>} />
 
                     <Route exact path="/register" element = {<Register/>} />
 

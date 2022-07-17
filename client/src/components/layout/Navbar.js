@@ -1,48 +1,57 @@
-import React, { Fragment } from 'react'
-import { Navigate } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
     <ul>
-        <li>
-        <Navigate to="/profiles">
-          Developers
-        </Navigate>
-        </li>
       <li>
-        <Navigate to="/dashboard">
-      <i className="fas fa-user"/>{' '}
-      <span className="hide-sm">Dashboard</span>
-        </Navigate>
-        </li>
+        <Link to="/profiles">Developers</Link>
+      </li>
+      <li>
+        <Link to="/posts">Posts</Link>
+      </li>
+      <li>
+        <Link to="/dashboard">
+          <i className="fas fa-user" />{' '}
+          <span className="hide-sm">Dashboard</span>
+        </Link>
+      </li>
       <li>
         <a onClick={logout} href="#!">
-        <i className="fas fa-sign-out-alt"></i>{' '}
-        <span className="hide-sm">Logout</span>
-         </a> 
+          <i className="fas fa-sign-out-alt" />{' '}
+          <span className="hide-sm">Logout</span>
+        </a>
       </li>
     </ul>
   );
+
   const guestLinks = (
     <ul>
-      <li><a href="#!">Developers</a></li>
-      <li><Navigate to="/register">Register</Navigate></li>
-      <li><Navigate to="/login">Login</Navigate></li>
+      <li>
+        <Link to="/profiles">Developers</Link>
+      </li>
+      <li>
+        <Link to="/register">Register</Link>
+      </li>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
     </ul>
   );
 
-  
   return (
     <nav className="navbar bg-dark">
-      <Navigate to="/profiles">
-          Developers
-        </Navigate>
-      { !loading && (<Fragment> { isAuthenticated ? authLinks : guestLinks}</Fragment>) }
+      <h1>
+        <Link to="/">
+          <i className="fas fa-code" /> DevConnector
+        </Link>
+      </h1>
+      <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
     </nav>
-  )
+  );
 };
 
 Navbar.propTypes = {
@@ -50,7 +59,7 @@ Navbar.propTypes = {
   auth: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
