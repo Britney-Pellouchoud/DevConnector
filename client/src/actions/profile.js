@@ -123,7 +123,7 @@ export const createProfile =
       );
 
       if (!edit) {
-        navigate.push('/dashboard');
+        navigate('/dashboard');
       }
     } catch (err) {
       const errors = err.response.data.errors;
