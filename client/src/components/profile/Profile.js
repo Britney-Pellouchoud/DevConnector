@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import ProfileTop from './ProfileTop';
+import ProfileAbout from './ProfileAbout';
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
@@ -26,6 +27,8 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
       }
        <div className="profile-grid my-1">
             <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+
             </div>
     </Fragment>) : null;
   };
