@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
+import ProfileTop from './ProfileTop';
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
@@ -13,15 +14,20 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
     useEffect(() => {
       getProfileById(id);
     }, [getProfileById, id]);
-    return <Fragment>
-      {profile !== null || loading ? <Spinner /> : <Fragment>profile</Fragment>}
+    return profile ? (<Fragment>
+      {profile === null || loading ? <Spinner /> : <Fragment>profile</Fragment>}
       <Link to="/profiles" className="btn btn-light">
         Back to Profiles
       </Link>
       {auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id && (<Link to="/edit-profile" className='btn btn-dark'>
         Edit Profile
-      </Link>)}
-    </Fragment>;
+       
+      </Link> )
+      }
+       <div className="profile-grid my-1">
+            <ProfileTop profile={profile} />
+            </div>
+    </Fragment>) : null;
   };
 
 Profile.propTypes = {
