@@ -2,6 +2,7 @@ import axios from 'axios';
 import { setAlert } from './alert';
 import {
     GET_POSTS,
+    GET_POST,
     POST_ERROR
 } from './types';
 
@@ -22,3 +23,4 @@ export const getPosts = () => async dispatch => {
         })
     }
 }
+
