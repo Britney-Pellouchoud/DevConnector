@@ -13,6 +13,9 @@ import AddEducation from './components/profile-form/AddEducation';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 
+import Posts from './components/posts/Posts';
+import Post from './components/post/Post';
+
 
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -71,9 +74,10 @@ const App = () => {
           <Route path="/edit-profile" element = {<PrivateRoute> <EditProfile /> </PrivateRoute>} />
           <Route path="/add-experience" element = {<PrivateRoute> <AddExperience /> </PrivateRoute>} />
           <Route path="/add-education" element = {<PrivateRoute> <AddEducation /> </PrivateRoute>} />
+          <Route path="/posts" element = {<PrivateRoute> <Posts /> </PrivateRoute>} />
 
-                    <Route exact path="/register" element = {<Register/>} />
-
+          
+          
         
       </Routes>
     </Fragment>
