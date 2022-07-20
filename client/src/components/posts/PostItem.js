@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 import { connect } from 'react-redux'
 
+console.log("PPOST")
+
 const PostItem = ({ auth, post: {_id, text, name, avatar, user, likes, comments, date}}) => {
 console.log("HONEY CAKES");
 console.log(text);

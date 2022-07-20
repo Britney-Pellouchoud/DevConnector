@@ -122,6 +122,7 @@ async (req, res) => {
 // @access  Public
 router.get('/', async (req, res) => {
     try {
+        console.log("AHHHHHHHHHHH");
       const profiles = await Profile.find().populate('user', ['name', 'avatar']);
       res.json(profiles);
     } catch (err) {
