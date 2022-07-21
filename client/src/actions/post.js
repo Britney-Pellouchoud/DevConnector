@@ -5,7 +5,8 @@ import {
     GET_POST,
     POST_ERROR,
     UPDATE_LIKES,
-    DELETE_POST
+    DELETE_POST,
+    ADD_POST
 } from './types';
 
 // Get posts
@@ -28,6 +29,31 @@ export const getPosts = () => async dispatch => {
     }
 }
 
+
+// Add post
+export const addPost = formData => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  try {
+      console.log("I am a lady")
+      const res = await axios.post('/api/posts', formData);
+      console.log("I am a man.")
+
+      dispatch( {
+          type: ADD_POST,
+          payload: res.data
+      })
+      dispatch(setAlert('Post Created', 'success'))
+  } catch(err) {
+      dispatch({
+          type: POST_ERROR,
+          payload: {msg: err.response.statusTest, status: err.response.status}
+      })
+  }
+}
 
 // Add Like
 export const addLike = id => async dispatch => {

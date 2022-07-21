@@ -2,20 +2,14 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PostItem from './PostItem';
+import PostForm from './PostForm';
+
 import { getPosts } from '../../actions/post';
 
 const Posts = ({ getPosts, post: { posts } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
-
-  //console.log(posts === Array(posts))
-  console.log('HERE HERE 2')
-  //console.log(posts) 
-  //posts = Object.values(posts)
-  // posts.map(post => (
-  //   console.log(post._id)
-  // ))
   
   return (
     <section className="container">
@@ -23,12 +17,10 @@ const Posts = ({ getPosts, post: { posts } }) => {
       <p className="lead">
         <i className="fas fa-user" /> Welcome to the community
       </p>
+      <PostForm />
       <div className="posts">
       {posts.map((post) => (
-         // <p>{post}</p>
-         //console.log(post),
           <PostItem key={post._id} post={post} />
-
         ))}
 
 
