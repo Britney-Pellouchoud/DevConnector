@@ -3,7 +3,8 @@ import { setAlert } from './alert';
 import {
     GET_POSTS,
     GET_POST,
-    POST_ERROR
+    POST_ERROR,
+    UPDATE_LIKES
 } from './types';
 
 // Get posts
@@ -24,6 +25,46 @@ export const getPosts = () => async dispatch => {
             payload: {msg: err.response.statusTest, status: err.response.status}
         })
     }
+}
+
+
+// Add Like
+export const addLike = id => async dispatch => {
+  try {
+      console.log(id)
+      const res = await axios.put(`/api/posts/like/${id}`);
+      console.log("POOP HEAD 2")
+
+      console.log(res.data);
+      
+      dispatch( {
+          type: UPDATE_LIKES,
+          payload: { id, likes: res.data }
+      })
+  } catch(err) {
+      dispatch({
+          type: POST_ERROR,
+          payload: {msg: err.response.statusTest, status: err.response.status}
+      })
+  }
+}
+
+// Remove Like
+export const removeLike = id => async dispatch => {
+  try {
+      const res = await axios.put(`/api/posts/unlike/${id}`);
+      console.log(res.data);
+      
+      dispatch( {
+          type: UPDATE_LIKES,
+          payload: { id, likes: res.data }
+      })
+  } catch(err) {
+      dispatch({
+          type: POST_ERROR,
+          payload: {msg: err.response.statusTest, status: err.response.status}
+      })
+  }
 }
 
 // Get post
