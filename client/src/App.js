@@ -75,6 +75,8 @@ const App = () => {
           <Route path="/add-experience" element = {<PrivateRoute> <AddExperience /> </PrivateRoute>} />
           <Route path="/add-education" element = {<PrivateRoute> <AddEducation /> </PrivateRoute>} />
           <Route path="/posts" element = {<PrivateRoute> <Posts /> </PrivateRoute>} />
+          <Route path="/posts/:id" element = {<PrivateRoute> <Post /> </PrivateRoute>} />
+
 
           
           
