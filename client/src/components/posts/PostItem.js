@@ -6,11 +6,14 @@ import { connect } from 'react-redux'
 
 console.log("PPOST")
 
-const PostItem = ({ auth, post: {_id, text, name, avatar, user, likes, comments, date}}) => {
-console.log("HONEY CAKES");
-console.log(text);
-<div class="post bg-white p-1 my-1">
-          <div>
+const PostItem = ({ auth, post: {_id, text, name, avatar, user, likes, comments, date}}) => (
+//const PostItem = ({ auth, post}) => (
+  
+//console.log("HONEY CAKES");
+
+//<p> hello </p>//(post._id)
+  <div class="post bg-white p-1 my-1">
+           <div>
             <a href="profile.html">
               <img
                 class="round-img"
@@ -49,8 +52,8 @@ console.log(text);
             )}
             
           </div>
-        </div>
-}
+            </div> 
+)
 
 
 PostItem.propTypes = {

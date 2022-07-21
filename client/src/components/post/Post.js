@@ -12,6 +12,8 @@ const Post = ({ getPost, post: { post, loading } }) => {
   useEffect(() => {
     
   }, [getPost, id]);
+  console.log('BOOP DIDDY DOO')
+  console.log(post.text)
 
   return loading || post === null ? (
     <Spinner />
